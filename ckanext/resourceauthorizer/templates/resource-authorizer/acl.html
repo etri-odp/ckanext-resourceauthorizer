@@ -1,0 +1,46 @@
+{% extends "package/resource_edit_base.html" %}
+
+{% block subtitle %}{{ h.dataset_display_name(pkg) }} - {{ h.resource_display_name(res) }}{% endblock %}
+
+{% block page_primary_action %}
+  {% link_for _('Add Resource ACL'), controller='ckanext.resourceauthorizer.controller:ResourceAuthorizerController', action='resource_acl_new', dataset_id=dataset_id, resource_id=resource_id, class_='btn btn-primary', icon='plus-square' %}
+{% endblock %}
+
+{% block primary_content_inner %}
+  <h3 class="page-heading">{{ _('{0} acls'.format(acls|length)) }}</h3>
+  <table class="table table-header table-hover table-bordered" id="member-table">
+    <thead>
+      <tr>
+        <th>{{ _('Authentication Id') }}</th>
+        <th>{{ _('Type') }}</th>
+        <th>{{ _('Permission') }}</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for acl in acls %}
+      <tr>
+        {% if acl.auth_type == "user" %}
+        <td class="media">
+          {{ h.linked_user(acl.auth_id, maxlength=20) }}
+        </td>
+        {% elif acl.auth_type == "org" %}
+        <td class="media">
+          {{ h.linked_organization(acl.auth_id) }}
+        </td>
+        {% endif %}
+        <td>{{ acl.auth_type }}</td>
+        <td>{{ acl.permission }}</td>
+        <td>
+          <div class="btn-group pull-right">
+            <a class="btn btn-default btn-sm" href="{% url_for controller='ckanext.resourceauthorizer.controller:ResourceAuthorizerController', action='resource_acl_new', id=acl.id, dataset_id=dataset_id, resource_id=resource_id %}" title="{{ _('Edit') }}">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <a class="btn btn-danger btn-sm" href="{% url_for controller='ckanext.resourceauthorizer.controller:ResourceAuthorizerController', action='resource_acl_delete', id=acl.id, dataset_id=dataset_id, resource_id=resource_id %}" data-module="confirm-action" data-module-content="{{ _('Are you sure you want to delete this acl?') }}" title="{{ _('Delete') }}">{% block delete_button_text %}<i class="fa fa-times"></i>{% endblock %}</a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
