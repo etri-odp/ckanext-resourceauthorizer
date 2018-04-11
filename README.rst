@@ -43,8 +43,10 @@ This extension provides an ability to let users specify who (users or organizati
 Notes:
 
 * Access permission setting for an organization will affect all members of the organization.
-* Extension always uses access permission at user-level as the final decision if there exists both rules for user and organization.
+* Extension always uses access permission at user-level as the final decision if there exist both rules for user and organization.
 * Allowing user/organization to access a resource will enable the access of the dataset metadata for that user/organization.
+
+.. image:: https://drive.google.com/uc?id=1QUiZNw96luC8uE8ujy1cF4N8F_sYYQgV
 
 ------------
 Requirements
