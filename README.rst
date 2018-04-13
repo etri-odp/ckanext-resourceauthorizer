@@ -2,14 +2,14 @@
    these badges work. The necessary Travis and Coverage config files have been
    generated for you.
 
-.. .. image:: https://travis-ci.org/etri-sodas/ckanext-resourceauthorizer.svg?branch=master
-    :target: https://travis-ci.org/etri-sodas/ckanext-resourceauthorizer
+.. .. image:: https://travis-ci.org/etri-odp/ckanext-resourceauthorizer.svg?branch=master
+    :target: https://travis-ci.org/etri-odp/ckanext-resourceauthorizer
 
-.. .. image:: https://coveralls.io/repos/etri-sodas/ckanext-resourceauthorizer/badge.svg
-  :target: https://coveralls.io/r/etri-sodas/ckanext-resourceauthorizer
+.. .. image:: https://coveralls.io/repos/etri-odp/ckanext-resourceauthorizer/badge.svg
+  :target: https://coveralls.io/r/etri-odp/ckanext-resourceauthorizer
 
 .. .. image:: https://pypip.in/download/ckanext-resourceauthorizer/badge.svg
-    :target: https://pypi.python.org/pypi/etri-sodas/ckanext-resourceauthorizer/
+    :target: https://pypi.python.org/pypi/etri-odp/ckanext-resourceauthorizer/
     :alt: Downloads
 
 .. .. image:: https://pypip.in/version/ckanext-resourceauthorizer/badge.svg
@@ -106,7 +106,7 @@ Development Installation
 To install ckanext-resourceauthorizer for development, activate your CKAN virtualenv and
 do::
 
-    git clone https://github.com/etri-sodas/ckanext-resourceauthorizer.git
+    git clone https://github.com/etri-odp/ckanext-resourceauthorizer.git
     cd ckanext-resourceauthorizer
     python setup.py develop
     pip install -r dev-requirements.txt
